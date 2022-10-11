@@ -4,7 +4,7 @@ import ga
 
 def main():
     # entradas da equação
-    equation_inputs = [4, -2, 3.5, 5, -11, -4.7]
+    equation_inputs = [15, 10, 10, 5, 8, 17]
     # número de pesos a otimizar
     num_weights = 6
 
@@ -14,7 +14,8 @@ def main():
     pop_size = (sol_per_pop, num_weights)
 
     # População inicial
-    new_population = np.random.uniform(low=-4.0, high=4.0, size=pop_size)
+    # new_population = np.random.uniform(low=-4.0, high=4.0, size=pop_size)
+    new_population = np.random.randint(low=0, high=2, size=pop_size)
 
     # Algoritmo genético
     num_generations = 100

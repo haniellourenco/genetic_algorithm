@@ -20,6 +20,7 @@ def select_mating_pool(pop, fitness, num_parents):
         max_fitness_idx = max_fitness_idx[0][0]
         parents[parent_num, :] = pop[max_fitness_idx, :]
         fitness[max_fitness_idx] = -sys.maxsize - 1
+        # fitness[max_fitness_idx] = 30
 
     return parents
 
@@ -52,7 +53,7 @@ def mutation(offspring_crossover, mutation_rate=0.3):
         if np.random.random() < mutation_rate:
             # O valor aleatório a ser adicionado
             random_idx = np.random.randint(0, offspring_crossover.shape[1])
-            random_value = np.random.uniform(-1.0, 1.0, 1)
-            offspring_crossover[idx, random_idx] = offspring_crossover[idx, random_idx] + random_value
+            # random_value = np.random.uniform(-1.0, 1.0, 1)
+            offspring_crossover[idx, random_idx] = offspring_crossover[idx, random_idx] + abs(random_idx - 1)
 
     return offspring_crossover
